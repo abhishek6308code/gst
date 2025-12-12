@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, Session } from '@supabase/supabase-js';
-import { supabase, Profile } from '../lib/supabase';
+// import { User, Session } from '@supabase/supabase-js';
+
 
 interface AuthContextType {
   user: User | null;
@@ -21,99 +21,99 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        loadProfile(session.user.id);
-      } else {
-        setLoading(false);
-      }
-    });
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data: { session } }) => {
+  //     setSession(session);
+  //     setUser(session?.user ?? null);
+  //     if (session?.user) {
+  //       loadProfile(session.user.id);
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      (async () => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        if (session?.user) {
-          await loadProfile(session.user.id);
-        } else {
-          setProfile(null);
-          setLoading(false);
-        }
-      })();
-    });
+  //   const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+  //     (async () => {
+  //       setSession(session);
+  //       setUser(session?.user ?? null);
+  //       if (session?.user) {
+  //         await loadProfile(session.user.id);
+  //       } else {
+  //         setProfile(null);
+  //         setLoading(false);
+  //       }
+  //     })();
+  //   });
 
-    return () => subscription.unsubscribe();
-  }, []);
+  //   return () => subscription.unsubscribe();
+  // }, []);
 
-  const loadProfile = async (userId: string) => {
-    try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
-        .maybeSingle();
+  // const loadProfile = async (userId: string) => {
+  //   try {
+  //     const { data, error } = await supabase
+  //       .from('profiles')
+  //       .select('*')
+  //       .eq('id', userId)
+  //       .maybeSingle();
 
-      if (error) throw error;
-      setProfile(data);
-    } catch (error) {
-      console.error('Error loading profile:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     if (error) throw error;
+  //     setProfile(data);
+  //   } catch (error) {
+  //     console.error('Error loading profile:', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  const signUp = async (
-    email: string,
-    password: string,
-    userData: { full_name: string; phone: string; business_name?: string }
-  ) => {
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
+  // const signUp = async (
+  //   email: string,
+  //   password: string,
+  //   userData: { full_name: string; phone: string; business_name?: string }
+  // ) => {
+  //   try {
+  //     const { data, error } = await supabase.auth.signUp({
+  //       email,
+  //       password,
+  //     });
 
-      if (error) throw error;
+  //     if (error) throw error;
 
-      if (data.user) {
-        const { error: profileError } = await supabase.from('profiles').insert({
-          id: data.user.id,
-          full_name: userData.full_name,
-          phone: userData.phone,
-          business_name: userData.business_name || null,
-          role: 'client',
-        });
+  //     if (data.user) {
+  //       const { error: profileError } = await supabase.from('profiles').insert({
+  //         id: data.user.id,
+  //         full_name: userData.full_name,
+  //         phone: userData.phone,
+  //         business_name: userData.business_name || null,
+  //         role: 'client',
+  //       });
 
-        if (profileError) throw profileError;
-      }
+  //       if (profileError) throw profileError;
+  //     }
 
-      return { error: null };
-    } catch (error) {
-      return { error: error as Error };
-    }
-  };
+  //     return { error: null };
+  //   } catch (error) {
+  //     return { error: error as Error };
+  //   }
+  // };
 
-  const signIn = async (email: string, password: string) => {
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+  // const signIn = async (email: string, password: string) => {
+  //   try {
+  //     const { error } = await supabase.auth.signInWithPassword({
+  //       email,
+  //       password,
+  //     });
 
-      if (error) throw error;
-      return { error: null };
-    } catch (error) {
-      return { error: error as Error };
-    }
-  };
+  //     if (error) throw error;
+  //     return { error: null };
+  //   } catch (error) {
+  //     return { error: error as Error };
+  //   }
+  // };
 
-  const signOut = async () => {
-    await supabase.auth.signOut();
-    setProfile(null);
-  };
+  // const signOut = async () => {
+  //   await supabase.auth.signOut();
+  //   setProfile(null);
+  // };
 
   const isAdmin = profile?.role === 'admin';
 
