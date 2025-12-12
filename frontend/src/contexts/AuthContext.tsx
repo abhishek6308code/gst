@@ -15,11 +15,11 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+// export function AuthProvider({ children }: { children: ReactNode }) {
+//   const [user, setUser] = useState<User | null>(null);
+//   const [profile, setProfile] = useState<Profile | null>(null);
+//   const [session, setSession] = useState<Session | null>(null);
+//   const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
   //   supabase.auth.getSession().then(({ data: { session } }) => {
@@ -115,21 +115,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   //   setProfile(null);
   // };
 
-  const isAdmin = profile?.role === 'admin';
+  // const isAdmin = profile?.role === 'admin';
 
-  const value = {
-    user,
-    profile,
-    session,
-    loading,
-    signUp,
-    signIn,
-    signOut,
-    isAdmin,
-  };
+  // const value = {
+  //   user,
+  //   profile,
+  //   session,
+  //   loading,
+  //   signUp,
+  //   signIn,
+  //   signOut,
+  //   isAdmin,
+  // };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+//   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+// }
 
 export function useAuth() {
   const context = useContext(AuthContext);
