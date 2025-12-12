@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AuthProvider } from './contexts/AuthContext';
+// import { AuthProvider } from './contexts/AuthContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -55,13 +55,13 @@ function App() {
   const showHeaderFooter = !['login', 'signup'].includes(currentPage);
 
   return (
-    <AuthProvider>
+    // <AuthProvider>
       <div className="min-h-screen bg-white flex flex-col">
         {showHeaderFooter && <Header currentPage={currentPage} onNavigate={handleNavigate} />}
         <main className="flex-grow">{renderPage()}</main>
         {showHeaderFooter && <Footer onNavigate={handleNavigate} />}
       </div>
-    </AuthProvider>
+    // </AuthProvider>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from ''
-import { Menu, X, LogOut, User, LayoutDashboard } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { Menu, X, LogOut, LayoutDashboard } from 'lucide-react';
+// import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   currentPage?: string;
@@ -9,8 +9,8 @@ interface HeaderProps {
 }
 
 export function Header({ currentPage, onNavigate }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, profile, signOut, isAdmin } = useAuth();
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const { user, profile, signOut, isAdmin } = useAuth();
 
   const navItems = [
     { label: 'Home', value: 'home' },
@@ -25,10 +25,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     // { label: 'Sign Up', value: 'signup' },
   ];
 
-  const handleSignOut = async () => {
-    await signOut();
-    onNavigate('home');
-  };
+  // const handleSignOut = async () => {
+  //   await signOut();
+  //   onNavigate('home');
+  // };
 
   return (<>
     <header className="bg-white shadow-sm sticky top-0 z-50">
