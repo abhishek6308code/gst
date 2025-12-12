@@ -43,13 +43,13 @@ export function About({ onNavigate }: AboutProps) {
       specialization: 'Financial Planning & Audit',
     },
     {
-      name: 'Inder mani',
+      name: 'Indar mani',
       role: 'Operations Head',
       experience: '2+ years in bookkeeping',
       specialization: 'Bookkeeping & Compliance',
     },
     {
-      name: 'Pradeep',
+      name: 'Pratik',
       role: 'Client Relations Manager',
       experience: '1+ years in client management',
       specialization: 'Client Support & Relations',
@@ -75,11 +75,14 @@ export function About({ onNavigate }: AboutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                About GSTPro
-              </h1>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                {/* Why Choose TheFinanceShowByA.K ? */}
+                About <span className="text-3xl md:text-4xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
+                <span className="text-2xl md:text-4xl font-BOLD mb-6 text-black">A.K</span>
+              </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Founded in 2023, GSTPro has emerged as a trusted partner for small businesses and freelancers across India, helping them navigate the complexities of GST compliance and financial management.
+                Founded in 2023,<span className="text-1xl md:text-2xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
+                <span className="text-1xl md:text-2xl font-bold mb-6 text-black">A.K</span> has emerged as a trusted partner for small businesses and freelancers across India, helping them navigate the complexities of GST compliance and financial management.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Our mission is simple: to make financial compliance effortless and affordable for every business, regardless of size. We combine expert knowledge with cutting-edge technology to deliver services that are both professional and accessible.

@@ -163,9 +163,11 @@ export function Services({ onNavigate }: ServicesProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Why Choose GSTPro?
-              </h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                                {/* Why Choose TheFinanceShowByA.K ? */}
+                                   <span className="text-3xl md:text-4xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
+                            <span className="text-2xl md:text-4xl font-BOLD mb-6 text-white">A.K</span>
+                            </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">

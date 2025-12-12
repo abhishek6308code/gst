@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { SEO } from '../components/SEO';
-import { supabase } from '../lib/supabase';
+
 
 interface ContactProps {
   onNavigate: (page: string) => void;
@@ -130,16 +130,29 @@ export function Contact({ onNavigate }: ContactProps) {
               </a>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-orange-600" />
+
+            <a
+              href="https://www.google.com/maps/place/Amit+Kesharwani+%26+Company/@25.3914461,81.8635077,18.5z/data=!4m6!3m5!1s0x398535f427e22fc3:0xb2806844ae117c46!8m2!3d25.3910323!4d81.8625343!16s%2Fg%2F11krby8nky?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 text-center hover:shadow-xl transition-shadow cursor-pointer">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-orange-600" />
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Office</h3>
+                <p className="text-gray-600 mb-2">Visit us at</p>
+
+                <p className="text-blue-600 font-semibold ">
+                  Naini, Prayagraj
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Office</h3>
-              <p className="text-gray-600 mb-2">Visit us at</p>
-              <p className="text-blue-600 font-semibold">
-                Naini,Prayagraj
-              </p>
-            </div>
+            </a>
+            
+
+
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -338,7 +351,7 @@ export function Contact({ onNavigate }: ContactProps) {
                   </li>
                 </ul>
               </div>
-           {/* later Implementation Second Phase */}
+              {/* later Implementation Second Phase */}
               {/* <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Already a Client?
