@@ -54,7 +54,7 @@ export function Course({ onNavigate }: CourseProps) {
                             >
                                 <div className="flex-shrink-0">
                                     <span className="text-3xl font-bold text-blue-600">GST</span>
-                                    <span className="text-3xl font-light text-gray-700">Mastery</span>
+                                    <span className="text-3xl font-bold text-gray-700">Mastery</span>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ export function Course({ onNavigate }: CourseProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Why Choose GSTPro?
+                                Why Choose TheFinanceShowByA.K ?
                             </h2>
                             <div className="space-y-4">
                                 <div className="flex items-start space-x-4">
@@ -178,7 +178,7 @@ export function Course({ onNavigate }: CourseProps) {
                             <div className="space-y-3">
 
                                 <button
-                                    onClick={() => onNavigate('contact')}
+                                    onClick={() => onNavigate('CourseEnquiry')}
                                     className="w-full px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors"
                                 >
                                     Register

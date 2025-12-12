@@ -13,8 +13,8 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="mb-4">
-              <span className="text-2xl font-bold text-blue-500">GST</span>
-              <span className="text-2xl font-light text-white">Pro</span>
+              <span className="text-2xl font-bold text-blue-500">TheFinanceShowBy</span>
+              <span className="text-2xl font-BOLD text-white">A.K</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
               Your trusted partner for GST compliance, bookkeeping, and financial advisory services in India.
@@ -54,6 +54,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 </button>
               </li>
               <li>
+              
                 <button onClick={() => onNavigate('about')} className="text-sm hover:text-blue-500 transition-colors">
                   About Us
                 </button>
@@ -61,6 +62,16 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button onClick={() => onNavigate('contact')} className="text-sm hover:text-blue-500 transition-colors">
                   Contact
+                </button>
+              </li>
+                  <li>
+                <button onClick={() => onNavigate('course')} className="text-sm hover:text-blue-500 transition-colors">
+                 Course
+                </button>
+              </li>
+                <li>
+                <button onClick={() => onNavigate('courseEnquiry')} className="text-sm hover:text-blue-500 transition-colors">
+                  Course Enquiry
                 </button>
               </li>
                <li>
@@ -110,7 +121,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {currentYear} GSTPro. All rights reserved. | Privacy Policy | Terms of Service
+            &copy; {currentYear} TheFinanceShowByA.K  All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

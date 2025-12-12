@@ -84,7 +84,7 @@ export function Home({ onNavigate }: HomeProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => onNavigate('signup')}
+                  onClick={() => onNavigate('contact')}
                   className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 >
                   <span>Get Started Today</span>
@@ -247,7 +247,7 @@ export function Home({ onNavigate }: HomeProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => onNavigate('signup')}
+              onClick={() => onNavigate('contact')}
               className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Contact US
