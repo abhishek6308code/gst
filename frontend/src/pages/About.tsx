@@ -36,24 +36,24 @@ export function About({ onNavigate }: AboutProps) {
       experience: '3+ years in taxation and compliance',
       specialization: 'GST & Tax Advisory',
     },
-    {
-      name: 'Sachin Singh',
-      role: 'Senior Partner',
-      experience: '2+ years in financial planning',
-      specialization: 'Financial Planning & Audit',
-    },
-    {
-      name: 'Indar mani',
-      role: 'Operations Head',
-      experience: '2+ years in bookkeeping',
-      specialization: 'Bookkeeping & Compliance',
-    },
-    {
-      name: 'Pratik',
-      role: 'Client Relations Manager',
-      experience: '1+ years in client management',
-      specialization: 'Client Support & Relations',
-    },
+    // {
+    //   name: 'Sachin Singh',
+    //   role: 'Senior Partner',
+    //   experience: '2+ years in financial planning',
+    //   specialization: 'Financial Planning & Audit',
+    // },
+    // {
+    //   name: 'Indar mani',
+    //   role: 'Operations Head',
+    //   experience: '2+ years in bookkeeping',
+    //   specialization: 'Bookkeeping & Compliance',
+    // },
+    // {
+    //   name: 'Pratik',
+    //   role: 'Client Relations Manager',
+    //   experience: '1+ years in client management',
+    //   specialization: 'Client Support & Relations',
+    // },
   ];
 
   const stats = [
@@ -76,13 +76,13 @@ export function About({ onNavigate }: AboutProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {/* Why Choose TheFinanceShowByA.K ? */}
+                {/* Why Choose TheFinanceShowByAK ? */}
                 About <span className="text-3xl md:text-4xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
-                <span className="text-2xl md:text-4xl font-BOLD mb-6 text-black">A.K</span>
+                <span className="text-2xl md:text-4xl font-BOLD mb-6 text-black">AK</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Founded in 2023,<span className="text-1xl md:text-2xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
-                <span className="text-1xl md:text-2xl font-bold mb-6 text-black">A.K</span> has emerged as a trusted partner for small businesses and freelancers across India, helping them navigate the complexities of GST compliance and financial management.
+                <span className="text-1xl md:text-2xl font-bold mb-6 text-black">AK</span> has emerged as a trusted partner for small businesses and freelancers across India, helping them navigate the complexities of GST compliance and financial management.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Our mission is simple: to make financial compliance effortless and affordable for every business, regardless of size. We combine expert knowledge with cutting-edge technology to deliver services that are both professional and accessible.
@@ -94,7 +94,7 @@ export function About({ onNavigate }: AboutProps) {
 
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-6 ">
                   {stats.map((stat, index) => (
                     <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
                       <div className="text-3xl font-bold text-blue-600 mb-2">

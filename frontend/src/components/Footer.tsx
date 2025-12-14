@@ -14,7 +14,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <div className="mb-4">
               <span className="text-2xl font-bold text-blue-500">TheFinanceShowBy</span>
-              <span className="text-2xl font-BOLD text-white">A.K</span>
+              <span className="text-2xl font-BOLD text-white">AK</span>
             </div>
             <p className="text-sm text-gray-400 mb-4">
               Your trusted partner for GST compliance, bookkeeping, and financial advisory services in India.
@@ -29,7 +29,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+              <a href="https://www.instagram.com/financeshowbyamit?igsh=NDQ4NHBlcWUyamIw" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -121,7 +121,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {currentYear} TheFinanceShowByA.K  All rights reserved. | Privacy Policy | Terms of Service
+            &copy; {currentYear} TheFinanceShowByAK  All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

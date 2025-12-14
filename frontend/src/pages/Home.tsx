@@ -5,7 +5,7 @@ interface HomeProps {
   onNavigate: (page: string) => void;
 }
 
-export function Home({ onNavigate }: HomeProps) {
+export  function Home({ onNavigate }: HomeProps) {
   const services = [
     {
       title: 'GST Filing',
@@ -45,13 +45,13 @@ export function Home({ onNavigate }: HomeProps) {
     {
       name: 'Rajesh Kumar',
       business: 'Kumar Textiles Pvt Ltd',
-      text: 'GSTPro made our GST compliance effortless. Their team is professional and always available for queries.',
+      text: 'ThefinanceShowByAK made our GST compliance effortless. Their team is professional and always available for queries.',
       rating: 5,
     },
     {
       name: 'Priya Sharma',
       business: 'Freelance Designer',
-      text: 'As a freelancer, managing finances was overwhelming. GSTPro handles everything seamlessly at affordable prices.',
+      text: 'As a freelancer, managing finances was overwhelming. ThefinanceShowByAK handles everything seamlessly at affordable prices.',
       rating: 5,
     },
     {

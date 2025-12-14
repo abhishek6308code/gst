@@ -1,5 +1,6 @@
 import { FileText, Calculator, Shield, Users, TrendingUp, CheckCircle } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import {Home} from './Home';
 
 interface ServicesProps {
   onNavigate: (page: string) => void;
@@ -89,6 +90,7 @@ export function Services({ onNavigate }: ServicesProps) {
 
   return (
     <>
+    <Home />
       <SEO
         title="Our Services"
         description="Comprehensive GST Filing, Bookkeeping, Tax Advisory, Payroll Management & Financial Planning services for Indian businesses"
@@ -164,9 +166,9 @@ export function Services({ onNavigate }: ServicesProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                {/* Why Choose TheFinanceShowByA.K ? */}
+                                {/* Why Choose TheFinanceShowByAK ? */}
                                    <span className="text-3xl md:text-4xl mb-12 font-bold text-blue-500">TheFinanceShowBy</span>
-                            <span className="text-2xl md:text-4xl font-BOLD mb-6 text-white">A.K</span>
+                            <span className="text-2xl md:text-4xl font-BOLD mb-6 text-white">AK</span>
                             </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">

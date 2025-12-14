@@ -9,7 +9,7 @@ interface SEOProps {
 
 export function SEO({ title, description, keywords, ogImage }: SEOProps) {
   useEffect(() => {
-    document.title = `${title} | GSTPro - Professional GST & Financial Services`;
+    document.title = `${title} | TheFinanceShowByAK - Professional GST & Financial Services`;
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
