@@ -276,7 +276,7 @@ export function Course({ onNavigate }: CourseProps) {
               {/* QR PLACEHOLDER */}
               <div className="w-80 h-80 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 mb-6">
                 <img
-                  src="./assets/image/paymentQR.png"
+                  src="./public/paymentQR.png"
                   alt="Payment QR"
                   className="w-80 h-80 mx-auto"
                 />
