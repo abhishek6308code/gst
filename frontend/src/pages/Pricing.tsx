@@ -131,7 +131,7 @@ export function Pricing({ onNavigate }: PricingProps) {
                 </ul>
 
                 <button
-                  onClick={() => onNavigate('signup')}
+                  onClick={() => onNavigate('contact')}
                   className={`w-full py-3 rounded-lg font-semibold transition-colors ${
                     plan.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
@@ -247,7 +247,7 @@ export function Pricing({ onNavigate }: PricingProps) {
               Contact Sales
             </button>
             <button
-              onClick={() => onNavigate('signup')}
+              onClick={() => onNavigate('contact')}
               className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Start Free Trial

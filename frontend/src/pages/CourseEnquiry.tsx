@@ -210,7 +210,7 @@ export default function EnrollForm() {
               {/* QR PLACEHOLDER */}
               <div className="w-80 h-80 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 mb-6">
                 <img
-                  src="./public/paymentQR.png"
+                  src="./paymentQR.png"
                   alt="Payment QR"
                   className="w-80 h-80 mx-auto"
                 />

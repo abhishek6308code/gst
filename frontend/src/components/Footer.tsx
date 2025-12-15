@@ -20,15 +20,15 @@ export function Footer({ onNavigate }: FooterProps) {
               Your trusted partner for GST compliance, bookkeeping, and financial advisory services in India.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61584623472747" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </a> */}
               <a href="https://www.instagram.com/financeshowbyamit?igsh=NDQ4NHBlcWUyamIw" className="text-gray-400 hover:text-blue-500 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>

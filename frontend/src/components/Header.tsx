@@ -13,10 +13,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   // const { user, profile, signOut, isAdmin } = useAuth();
 
   const navItems = [
-     { label: 'Home', value: 'course' },
+     { label: 'Home', value: 'courseHome' },
     // { label: 'Home', value: 'home' },
     { label: 'Services', value: 'services' },
-    { label: 'Pricing', value: 'pricing' },
+    { label: 'ServicePricing', value: 'pricing' },
     { label: 'About', value: 'about' },
     { label: 'Contact', value: 'contact' },
    
