@@ -74,7 +74,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   Course Enquiry
                 </button>
               </li>
-               <li>
+               {/* <li>
                 <button onClick={() => onNavigate('login')} className="text-sm hover:text-blue-500 transition-colors">
                 Admin Login
                 </button>
@@ -83,7 +83,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button onClick={() => onNavigate('signup')} className="text-sm hover:text-blue-500 transition-colors">
                 Admin Signup
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -121,7 +121,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {currentYear} TheFinanceShowByAK  All rights reserved. | Privacy Policy | Terms of Service
+            &copy; {currentYear} TheFinanceShowByAK  All rights reserved . 
           </p>
         </div>
       </div>

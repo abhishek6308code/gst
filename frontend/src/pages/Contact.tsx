@@ -157,7 +157,23 @@ export function Contact({ onNavigate }: ContactProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+    Send Us a Message
+  </h2>
+
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSceg3rFysoVi_f_pHfQ85VjeJsDlZJqV8IrfQBdopRld4XyEA/viewform?usp=header"
+    width="100%"
+    height="820"
+    frameBorder="0"
+    marginHeight={0}
+    marginWidth={0}
+    className="rounded-lg"
+    title="Contact Form"
+  >
+    Loading…
+  </iframe>
+              {/* <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h2>
 
@@ -167,15 +183,15 @@ export function Contact({ onNavigate }: ContactProps) {
                     Thank you for your enquiry! We'll get back to you within 24 hours.
                   </p>
                 </div>
-              )}
-
+              )} */}
+{/* 
               {error && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">{error}</p>
                 </div>
-              )}
+              )} */}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {/* <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                     Full Name *
@@ -292,7 +308,7 @@ export function Contact({ onNavigate }: ContactProps) {
                     </>
                   )}
                 </button>
-              </form>
+              </form> */}
             </div>
 
             <div className="space-y-8">

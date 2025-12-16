@@ -3,7 +3,8 @@
 import { FileText, Calculator, Shield, Users, TrendingUp, CheckCircle, User } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import CourseEnquiry from './CourseEnquiry';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, } from 'lucide-react';
+import  PaymentQR  from '../assets/paymentQR.png';
 
 
 interface CourseProps {
@@ -37,15 +38,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
         'Compliance calendar management',
         'Practical case studies',
 
-        // 'Freelancers & consultants',
 
-        // 'Commerce & non-commerce students',
-
-        // 'Small business owners & startups',
-
-        // 'Working professionals looking to upskill in taxation',
-
-        // 'Anyone planning to start GST return filing services'
       ],
       color: 'blue',
     },
@@ -98,11 +91,11 @@ export function CourseHome({ onNavigate }: CourseProps) {
 
   return (
     <>
-     <SEO
-  title="Best GST Course in India | Practical GST Filing & Compliance Training"
-  description="Learn GST from basics to advanced with our practical GST course in India. Ideal for beginners, freelancers, job seekers & business owners. Hands-on GST return filing with certification."
-  keywords="best GST course in India, GST filing course, GST practical training, GST course for job, GST course for business owners, GST learning India"
- />
+      <SEO
+        title="Best GST Course in India | Practical GST Filing & Compliance Training"
+        description="Learn GST from basics to advanced with our practical GST course in India. Ideal for beginners, freelancers, job seekers & business owners. Hands-on GST return filing with certification."
+        keywords="best GST course in India, GST filing course, GST practical training, GST course for job, GST course for business owners, GST learning India"
+      />
 
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-gray-50 pt-16 pb-20 md:pt-24 md:pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,8 +135,8 @@ export function CourseHome({ onNavigate }: CourseProps) {
                   <div className="flex items-center space-x-4 p-4 bg-green-50 rounded-lg">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                     <div>
-                      <p className="font-semibold text-gray-900">100% WORK Ready</p>
-                      <p className="text-sm text-gray-600">All Topic </p>
+                      <p className="font-semibold text-gray-900">100% WORK Ready </p>
+                      <p className="text-sm text-gray-600">All Topic Cover </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg">
@@ -189,15 +182,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
             </h1>  <span className="text-3xl font-bold text-blue-600">GST</span>
             <span className="text-3xl font-bold text-gray-700">Mastery</span>
             <div className="flex justify-between items-center h-16">
-              {/* <div
-                                className="flex items-center cursor-pointer"
-                                onClick={() => onNavigate('home')}
-                            >
-                                <div className="flex-shrink-0">
-                                    <span className="text-3xl font-bold text-blue-600">GST</span>
-                                    <span className="text-3xl font-bold text-gray-700">Mastery</span>
-                                </div>
-                            </div> */}
+
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Comprehensive GST course designed for beginners, freelancers, and professionals in India with hands-on return filing and real-world compliance training.
@@ -225,12 +210,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
                       <p className="text-gray-600 leading-relaxed mb-6">
                         {service.description}
                       </p>
-                      {/* <button
-                                                    onClick={() => onNavigate('contact')}
-                                                    className={`px-6 py-3 ${colors.bg} ${colors.text} rounded-lg font-semibold hover:opacity-80 transition-opacity`}
-                                                >
-                                                    Get Started
-                                                </button> */}
+
                       <button
                         onClick={() => onNavigate('CourseEnquiry')}
                         className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
@@ -262,8 +242,109 @@ export function CourseHome({ onNavigate }: CourseProps) {
             })}
           </div>
         </div>
-      </section>
 
+
+     </section>
+     {/* <section className="bg-gradient-to-br from-gray-50 to-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+          <div className="space-y-12">
+
+
+
+            <div
+              key={1}
+              className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-8 md:p-10">
+                <div className="lg:col-span-1">
+                  <div className={`w-16 h-16 bg-green rounded-xl flex items-center justify-center mb-6`}>
+                    <User className={`w-8 h-8 text-green}`} />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    Who Should Join This Course
+                  </h2>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Hands-on GST training with real-world compliance and filing practice
+                  </p>
+
+                  <button
+                    onClick={() => onNavigate('CourseEnquiry')}
+                    className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                  >
+                    Enroll Now
+                  </button>
+
+                </div>
+
+                <div className="lg:col-span-2">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-green flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Beginners with no prior GST knowledge</span>
+
+                    </div>
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-red flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Freelancers & consultants</span>
+
+                    </div>
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-red flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Commerce & non - commerce students</span>
+
+                    </div>
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-red flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Small business owners & startups</span>
+
+                    </div>
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-red flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Working professionals looking to upskill in taxation</span>
+
+                    </div>
+
+                    <div
+                      key='1'
+                      className="flex items-start space-x-3"
+                    >
+                      <CheckCircle className={`w-5 h-5 text-red flex-shrink-0 mt-0.5`} />
+                      <span className="text-gray-700">Anyone planning to start GST return filing services</span>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </section> */}
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -303,7 +384,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
               {/* QR PLACEHOLDER */}
               <div className="w-80 h-80 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 mb-6">
                 <img
-                  src="./paymentQR.png"
+                  src={PaymentQR}
                   alt="Payment QR"
                   className="w-80 h-80 mx-auto"
                 />
