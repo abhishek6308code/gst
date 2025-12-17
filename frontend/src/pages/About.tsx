@@ -71,7 +71,7 @@ export function About({ onNavigate }: AboutProps) {
         keywords="about GSTPro, chartered accountant firm, tax consultants India, financial services company"
       />
 
-      <section className="bg-gradient-to-br from-blue-50 via-white to-gray-50 py-16 md:py-20">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-gray-50 py-8 md:py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
@@ -132,7 +132,7 @@ export function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -167,7 +167,7 @@ export function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-6 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -203,7 +203,7 @@ export function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -253,7 +253,7 @@ export function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-700">
+      <section className="py-6 bg-gradient-to-br from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Experience the Difference?

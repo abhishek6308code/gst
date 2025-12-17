@@ -28,7 +28,7 @@ export function Contact({ onNavigate }: ContactProps) {
     if (!/^\S+@\S+\.\S+$/.test(formData.email)) errs.push('Valid email is required.');
     const phoneClean = formData.phone.replace(/[^\d+]/g, '');
     const digits = phoneClean.replace(/\D/g, '');
-    if (!phoneClean || digits.length < 7 || digits.length > 15) errs.push('Valid phone number is required.');
+    if (!phoneClean || !/^[6-9]\d{9}$/.test(digits)) errs.push('Phone must start with 6,7,8,9 and be 10 digits');
     if (!formData.service_type) errs.push('Service type is required.');
     if (!formData.message.trim() || formData.message.trim().length < 5) errs.push('Message is required.');
     return errs;
@@ -160,7 +160,7 @@ export function Contact({ onNavigate }: ContactProps) {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
     Send Us a Message
   </h2>
-
+{/* 
   <iframe
     src="https://docs.google.com/forms/d/e/1FAIpQLSceg3rFysoVi_f_pHfQ85VjeJsDlZJqV8IrfQBdopRld4XyEA/viewform?usp=header"
     width="100%"
@@ -172,8 +172,8 @@ export function Contact({ onNavigate }: ContactProps) {
     title="Contact Form"
   >
     Loading…
-  </iframe>
-              {/* <h2 className="text-2xl font-bold text-gray-900 mb-6">
+  </iframe> */}
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h2>
 
@@ -183,15 +183,14 @@ export function Contact({ onNavigate }: ContactProps) {
                     Thank you for your enquiry! We'll get back to you within 24 hours.
                   </p>
                 </div>
-              )} */}
-{/* 
+              )} 
               {error && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">{error}</p>
                 </div>
-              )} */}
+              )} 
 
-              {/* <form onSubmit={handleSubmit} className="space-y-6">
+         <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                     Full Name *
@@ -237,7 +236,7 @@ export function Contact({ onNavigate }: ContactProps) {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                      placeholder="+91 98765 43210"
+                      placeholder="9876543210"
                     />
                   </div>
                 </div>
@@ -308,7 +307,7 @@ export function Contact({ onNavigate }: ContactProps) {
                     </>
                   )}
                 </button>
-              </form> */}
+              </form> 
             </div>
 
             <div className="space-y-8">

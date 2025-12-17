@@ -42,12 +42,13 @@ router.post('/enquiries', async (req, res) => {
 router.post('/enrollments', async (req, res) => {
   try {
     const db = getDb();
-    const { name, email, phone, highestQualification } = req.body || {};
+    const { name, email, phone, highestQualification, currentProfession } = req.body || {};
     const errors = [];
     if (!isNonEmptyString(name) || name.trim().length < 2) errors.push('Name is required (min 2 chars).');
     if (!isEmail(email)) errors.push('Valid email is required.');
     if (phone && !isPhoneValid(phone)) errors.push('Phone is invalid.');
     if (!isNonEmptyString(highestQualification)) errors.push('Highest qualification is required.');
+    if (!isNonEmptyString(currentProfession)) errors.push('Current profession is required.');
     if (errors.length) return res.status(400).json({ errors });
 
     const doc = {
@@ -55,6 +56,7 @@ router.post('/enrollments', async (req, res) => {
       email: email.trim(),
       phone: phone ? normalizePhone(phone) : null,
       highestQualification: String(highestQualification).trim(),
+      currentProfession: String(currentProfession).trim(),
       createdAt: new Date(),
     };
 

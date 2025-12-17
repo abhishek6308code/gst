@@ -64,12 +64,24 @@ export function Pricing({ onNavigate }: PricingProps) {
   ];
 
   const addons = [
-    { name: 'GST Registration', price: '₹1,999', type: 'one-time' },
-    { name: 'Additional ITR Filing', price: '₹499', type: 'per filing' },
-    { name: 'TDS Return Filing', price: '₹999', type: 'per quarter' },
-    { name: 'Payroll (per employee)', price: '₹99', type: 'per month' },
-    { name: 'Tax Audit', price: '₹9,999', type: 'per year' },
-    { name: 'Company Formation', price: '₹14,999', type: 'one-time' },
+    { name: 'GST Registration', price: '₹2,000', type: 'one-time' },
+    { name: 'ITR Filing', price: '₹500', type: 'per filing' },
+    { name: 'TDS Return Filing', price: '₹1000', type: 'per quarter' },
+    { name: 'Payroll (per employee)', price: '₹100', type: 'per month' },
+    { name: 'Tax Audit', price: '₹10,000', type: 'per year' },
+    { name: 'Company Incorporation', price: '₹15000', type: 'one-time' },
+    { name: 'EPO (Farmer Producer Company)', price: '₹25,000', type: 'one-time' },
+    { name: 'Food License(FSSAI)', price: '₹2,000', type: 'one-time' },
+    { name: 'Trademark Registration', price: '₹7,000', type: 'one-time' },
+    { name: 'Trust & NGO Registration', price: '₹10,000', type: 'one-time' },
+    { name: 'PF & ESI Registration', price: '₹3,000', type: 'one-time' },
+    { name: 'Project Filing', price: '₹ Depend', type: 'one-time' },
+    {name: 'Balance Sheet Preparation', price: '₹ Depend', type: 'one-time' },
+    {name: 'Income Tax Notice Handling', price: '₹ Depend', type: 'one-time' },
+    { name: 'Loan Project', price: '₹ Depend', type: 'one-time' },
+    { name: 'Accounting & Bookkeeping', price: '₹ Depend', type: 'per month' },
+    { name: 'MSME Registration', price: '₹3,000', type: 'one-time' },
+    { name: 'Partnership Firm Registration', price: '₹8,000', type: 'one-time' },
   ];
 
   return (
@@ -80,7 +92,7 @@ export function Pricing({ onNavigate }: PricingProps) {
         keywords="GST filing cost, bookkeeping charges, tax consultant fees, accounting services pricing India"
       />
 
-      <section className="bg-gradient-to-br from-gray-50 to-white py-16 md:py-20">
+      <section className="bg-gradient-to-br from-gray-50 to-white py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -176,7 +188,7 @@ export function Pricing({ onNavigate }: PricingProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Frequently Asked Questions
@@ -231,7 +243,7 @@ export function Pricing({ onNavigate }: PricingProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-700">
+      <section className="py-6 bg-gradient-to-br from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Still Have Questions?

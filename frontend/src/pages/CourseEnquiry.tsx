@@ -1,96 +1,98 @@
 
 import React, { useState } from 'react';
 import  PaymentQR from '../assets/paymentQR.png';
+import { motion } from 'framer-motion';
 interface EnrollData {
   name: string;
   email: string;
   phone: string;
   highestQualification: string;
+  currentProfession?: string;
 }
 
 export default function EnrollForm() {
-  // const [form, setForm] = useState<EnrollData>({ name: '', email: '', phone: '', highestQualification: '' });
-  // const [errors, setErrors] = useState<Record<string, string>>({});
-  // const [submitting, setSubmitting] = useState(false);
-  // const [success, setSuccess] = useState<string | null>(null);
+  const [form, setForm] = useState<EnrollData>({ name: '', email: '', phone: '', highestQualification: '', currentProfession: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
 
-  // const API = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+  const API = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
   
 
-  // const validate = (values: EnrollData) => {
-  //   const e: Record<string, string> = {};
-  //   if (!values.name.trim()) e.name = 'Name is required.';
-  //   if (!/^\S+@\S+\.\S+$/.test(values.email)) e.email = 'Enter a valid email.';
-  //   const phoneClean = values.phone.replace(/[^\d+]/g, '');
-  //   const digits = phoneClean.replace(/\D/g, '');
-  //   if (!phoneClean || digits.length < 7 || digits.length > 15) e.phone = 'Enter a valid phone.';
-  //   if (!values.highestQualification) e.highestQualification = 'Please select your highest qualification.';
-  //   return e;
-  // };
+  const validate = (values: EnrollData) => {
+    const e: Record<string, string> = {};
+    if (!values.name.trim()) e.name = 'Name is required.';
+    if (!/^\S+@\S+\.\S+$/.test(values.email)) e.email = 'Enter a valid email.';
+    const phoneClean = values.phone.replace(/[^\d+]/g, '');
+    const digits = phoneClean.replace(/\D/g, '');
+    if (!phoneClean || !/^[6-9]\d{9}$/.test(digits)) e.phone = 'Phone must start with 6,7,8,9 and be 10 digits';
+    //   if (!formData.phone.trim()) {
+    //   newErrors.phone = "Phone number is required";
+    // } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+    //   newErrors.phone = "Phone must start with 6,7,8,9 and be 10 digits";
+    // }
+    if (!values.highestQualification) e.highestQualification = 'Please select your highest qualification.';
+    if (!values.currentProfession) e.currentProfession = 'Please select your current profession.';
+    return e;
+  };
 
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-  //   const { name, value } = e.target;
-  //   setForm(prev => ({ ...prev, [name]: value }));
-  //   setErrors(prev => ({ ...prev, [name]: '' }));
-  // };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
+  };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setSuccess(null);
-  //   const v = validate(form);
-  //   setErrors(v);
-  //   if (Object.keys(v).length) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSuccess(null);
+    const v = validate(form);
+    setErrors(v);
+    if (Object.keys(v).length) return;
 
-  //   try {
-  //     setSubmitting(true);
-  //     const resp = await fetch(`${API}/api/enrollments`, {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(form),
-  //     });
-  //     const json = await resp.json();
-  //     if (resp.status === 201) {
-  //       setSuccess('Enrolled successfully! We will contact you soon.');
-  //       setForm({ name: '', email: '', phone: '', highestQualification: '' });
-  //     } else if (resp.status === 409) {
-  //       setErrors({ phone: json.error || 'Phone already used' });
-  //     } else if (resp.status === 400 && json.errors) {
-  //       // show server validation errors
-  //       const joined = Array.isArray(json.errors) ? json.errors.join(' ') : String(json.errors);
-  //       setSuccess(joined);
-  //     } else {
-  //       setSuccess(json.error || 'Something went wrong');
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     setSuccess('Something went wrong. Please try again later.');
-  //   } finally {
-  //     setSubmitting(false);
-  //   }
-  // };
+    try {
+      setSubmitting(true);
+      const resp = await fetch(`${API}/api/enrollments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const json = await resp.json();
+      if (resp.status === 201) {
+        setSuccess('Enrolled successfully! We will contact you soon.');
+        setForm({ name: '', email: '', phone: '', highestQualification: '', currentProfession: ''  });
+      } else if (resp.status === 409) {
+        setErrors({ phone: json.error || 'Phone already used' });
+      } else if (resp.status === 400 && json.errors) {
+        // show server validation errors
+        const joined = Array.isArray(json.errors) ? json.errors.join(' ') : String(json.errors);
+        setSuccess(joined);
+      } else {
+        setSuccess(json.error || 'Something went wrong');
+      }
+    } catch (err) {
+      console.error(err);
+      setSuccess('Something went wrong. Please try again later.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
-<div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-200">
+{/* <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-200">
   <h2 className="text-2xl font-bold text-gray-900 mb-6">
     Course Enquiry Form
   </h2>
 
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSc-GWjGi8IaB09M62cOgdfTYYP8g-tQzad7837E-I8rQT_QGA/viewform?usp=header"
-    width="100%"
-    height="820"
-    frameBorder="0"
-    marginHeight={0}
-    marginWidth={0}
-    className="rounded-lg"
-    title="Contact Form"
-  >
-    Loading…
-  </iframe>
-</div>
 
-      {/* For running this form need MongoDB atlas and backend API
+</div>  */}
+ 
+      {/* For running this form need MongoDB atlas and backend API */}
+        <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
       <form onSubmit={handleSubmit} className="max-w-xl mx-auto bg-white shadow-md rounded-xl p-6 sm:p-8 space-y-6" noValidate>
         <h3 className="text-2xl font-semibold text-gray-900">Enroll for Course</h3>
         {success && <div className="rounded-md bg-green-50 border border-green-200 text-green-800 px-4 py-2">{success}</div>}
@@ -112,7 +114,7 @@ export default function EnrollForm() {
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone No.</label>
           <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange}
-            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="+91 9876543210" />
+            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="9876543210" />
           {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
         </div>
 
@@ -127,10 +129,24 @@ export default function EnrollForm() {
             <option value="Bachelors">Bachelor's Degree</option>
             <option value="Masters">Master's Degree</option>
             <option value="PhD">PhD</option>
-            <option value="Other">Other</option>
+            {/* <option value="Other">Other</option> */}
           </select>
           {errors.highestQualification && <p className="text-sm text-red-600 mt-1">{errors.highestQualification}</p>}
         </div>
+          <div>
+          <label htmlFor="currentProfession" className="block text-sm font-medium text-gray-700">Current Profession</label>
+          <select id="currentProfession" name="currentProfession" value={form.currentProfession} onChange={handleChange}
+            className="mt-1 block w-full rounded-lg border px-3 py-2 bg-white">
+            <option value="">Select profession</option>
+            <option value="Student">Student</option>
+            <option value="Freelancer">Freelancer</option>
+            <option value="Business Owner">Business Owner</option>
+            <option value="Working Professional">Working Professional</option>
+            {/* <option value="Other">Other</option> */}
+          </select>
+          {errors.currentProfession && <p className="text-sm text-red-600 mt-1">{errors.currentProfession}</p>}
+        </div>
+          
 
         <div className="pt-2">
           <button type="submit" disabled={submitting}
@@ -138,8 +154,8 @@ export default function EnrollForm() {
             {submitting ? 'Submitting...' : 'Enroll Now'}
           </button>
         </div>
-      </form> */}
- 
+      </form>
+ </motion.div>
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -176,11 +192,11 @@ export default function EnrollForm() {
               </h2>
 
               {/* QR PLACEHOLDER */}
-              <div className="w-80 h-80 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 mb-6">
+              <div className="w-28 h-28 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 mb-6">
                 <img
                   src={PaymentQR}
                   alt="Payment QR"
-                  className="w-80 h-80 mx-auto"
+                  className="w-28 h-28 mx-auto"
                 />
               </div>
 
@@ -204,3 +220,17 @@ export default function EnrollForm() {
   );
 
 }
+
+
+  {/* <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSc-GWjGi8IaB09M62cOgdfTYYP8g-tQzad7837E-I8rQT_QGA/viewform?usp=header"
+    width="100%"
+    height="820"
+    frameBorder="0"
+    marginHeight={0}
+    marginWidth={0}
+    className="rounded-lg"
+    title="Contact Form"
+  >
+    Loading…
+  </iframe>*/}

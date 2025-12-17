@@ -43,10 +43,10 @@ function AppWrapper() {
           <Route path="/contact" element={<Contact onNavigate={handleNavigate} />} />
           <Route path="/courseHome" element={<CourseHome onNavigate={handleNavigate} />} />
           <Route path="/CourseEnquiry" element={<CourseEnquiry onNavigate={handleNavigate} />} />
-
-          {/* <Route path="/admindashboard" element={<AdminDashboard onNavigate={handleNavigate} />} />
           <Route path="/login" element={<AdminLogin onNavigate={handleNavigate} />} />
-          <Route path="/signup" element={<AdminSignup />} /> */}
+       <Route path="/admindashboard" element={<AdminDashboard onNavigate={handleNavigate} />} />
+         
+              {/*<Route path="/signup" element={<AdminSignup />} /> */}
         </Routes>
       </main>
 
