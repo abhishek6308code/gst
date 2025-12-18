@@ -6,7 +6,8 @@ interface FooterProps {
 
 export function Footer({ onNavigate }: FooterProps) {
 
-  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [policyType, setPolicyType] = useState<'privacy' | 'terms' | 'disclaimer' | null>(null);
+
 
   const currentYear = new Date().getFullYear();
 
@@ -126,14 +127,29 @@ export function Footer({ onNavigate }: FooterProps) {
           <p className="text-sm text-gray-400">
             &copy; {currentYear} TheFinanceShowByAK. All rights reserved. |
             <button
-              onClick={() => setShowPrivacy(true)}
+              onClick={() => setPolicyType('privacy')}
               className="ml-2 text-blue-400 hover:text-blue-500 underline"
             >
               Privacy Policy
             </button>
+
+            <button
+              onClick={() => setPolicyType('terms')}
+              className="ml-2 text-blue-400 hover:text-blue-500 underline"
+            >
+              Terms of Service
+            </button>
+
+            <button
+              onClick={() => setPolicyType('disclaimer')}
+              className="ml-2 text-blue-400 hover:text-blue-500 underline"
+            >
+              Disclaimer
+            </button>
+
           </p>
           {/* PRIVACY POLICY MODAL */}
-          {showPrivacy && (
+          {policyType === 'privacy' && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
               <div className="relative bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden">
 
@@ -141,7 +157,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <div className="flex items-center justify-between px-6 py-4 border-b">
                   <h2 className="text-xl font-bold text-gray-900">Privacy Policy</h2>
                   <button
-                    onClick={() => setShowPrivacy(false)}
+                    onClick={() => setPolicyType(null)}
                     className="text-gray-400 hover:text-gray-700 text-xl"
                   >
                     ✕
@@ -169,7 +185,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
                   <p>
                     All course content, including videos, live sessions, study materials, and recordings, is the intellectual property of TheFinanceShowByAK.
-                     Students are strictly prohibited from recording, downloading, reproducing, sharing, selling, or distributing any part of the course content whether free or paid without prior written consent.
+                    Students are strictly prohibited from recording, downloading, reproducing, sharing, selling, or distributing any part of the course content whether free or paid without prior written consent.
                     Unauthorized recording, screen capturing, sharing, or resale of course materials may result in immediate termination of access without refund and may lead to legal action under applicable laws.
                     By enrolling in this course, you agree to comply with this policy and respect the intellectual property rights of the instructor and the platform.
                   </p>
@@ -188,7 +204,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 {/* FOOTER */}
                 <div className="px-6 py-4 border-t text-right">
                   <button
-                    onClick={() => setShowPrivacy(false)}
+                    onClick={() => setPolicyType(null)}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                   >
                     Close
@@ -197,6 +213,81 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
             </div>
           )}
+          {policyType === 'terms' && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+              <div className="relative bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden">
+
+                <div className="flex items-center justify-between px-6 py-4 border-b">
+                  <h2 className="text-xl font-bold text-gray-900">Terms & Conditions</h2>
+                  <button onClick={() => setPolicyType(null)} className="text-xl">✕</button>
+                </div>
+
+                <div className="p-6 max-h-[70vh] overflow-y-auto text-gray-700 text-sm space-y-4">
+                  <p>
+                    By accessing TheFinanceShowByAK, you agree to these Terms & Conditions.
+                  </p>
+                  <p>
+                    All course content is for personal educational use only and may not be
+                    recorded, shared, or resold without written permission.
+                  </p>
+                  <p>
+                    Fees paid are non-refundable unless explicitly stated. Violation of
+                    terms may result in termination of access without refund.
+                  </p>
+                  <p>
+                    We reserve the right to modify these terms at any time.
+                  </p>
+                </div>
+
+                <div className="px-6 py-4 border-t text-right">
+                  <button onClick={() => setPolicyType(null)} className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {policyType === 'disclaimer' && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+              <div className="relative bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden">
+
+                <div className="flex items-center justify-between px-6 py-4 border-b">
+                  <h2 className="text-xl font-bold text-gray-900">Disclaimer</h2>
+                  <button onClick={() => setPolicyType(null)} className="text-xl">✕</button>
+                </div>
+
+                <div className="p-6 max-h-[70vh] overflow-y-auto text-gray-700 text-sm space-y-4">
+                 <p>Disclaimer
+                  The information, courses, and services provided by TheFinanceShowByAK are intended for educational and informational purposes only.</p>
+                  <p>1. No Professional Liability
+                  While we strive to provide accurate and up-to-date information related to GST, taxation, and finance, we do not guarantee completeness or accuracy. The content should not be considered as legal, financial, or professional advice.</p>
+                  <p>2. Independent Decisions
+                  Users are advised to consult qualified professionals before making financial, tax, or business decisions based on the information provided on this platform.</p>
+                  <p>3. Limitation of Liability
+                  TheFinanceShowByAK shall not be liable for any direct or indirect loss, damage, or consequences arising from the use of our website, courses, or services.</p>
+
+                  {/* <p>
+                    The content provided by TheFinanceShowByAK is for educational purposes only.
+                  </p>
+                  <p>
+                    We do not provide legal, tax, or financial advice. Users should consult
+                    qualified professionals before making decisions.
+                  </p>
+                  <p>
+                    We are not responsible for any loss arising from the use of this content.
+                  </p> */}
+                </div>
+
+                <div className="px-6 py-4 border-t text-right">
+                  <button onClick={() => setPolicyType(null)} className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
 
         </div>
       </div>

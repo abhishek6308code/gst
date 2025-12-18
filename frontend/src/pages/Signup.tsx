@@ -68,6 +68,7 @@ export function Signup({ onNavigate }: SignupProps) {
         title="Sign Up"
         description="Create your GSTPro account to access professional GST filing, bookkeeping, and financial services"
         keywords="register, sign up, create account, GST services"
+        ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
 
       <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50 py-16">

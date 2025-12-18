@@ -98,65 +98,28 @@ export function CourseHome({ onNavigate }: CourseProps) {
     },
    
   ];
-  const testimonials = [
-    {
-      name: 'Rohit Sharma',
-      role: 'Commerce Student',
-      feedback:
-        'This GST course is very practical. I filed real returns and gained confidence.',
-    },
-    {
-      name: 'Pooja Verma',
-      role: 'Freelancer',
-      feedback:
-        'After this course, I started my own GST filing service. Highly recommended!',
-    },
-    {
-      name: 'Amit Jain',
-      role: 'Business Owner',
-      feedback:
-        'Simple explanations and real examples helped me manage my GST myself.',
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     name: 'Rohit Sharma',
+  //     role: 'Commerce Student',
+  //     feedback:
+  //       'This GST course is very practical. I filed real returns and gained confidence.',
+  //   },
+  //   {
+  //     name: 'Pooja Verma',
+  //     role: 'Freelancer',
+  //     feedback:
+  //       'After this course, I started my own GST filing service. Highly recommended!',
+  //   },
+  //   {
+  //     name: 'Amit Jain',
+  //     role: 'Business Owner',
+  //     feedback:
+  //       'Simple explanations and real examples helped me manage my GST myself.',
+  //   },
+  // ];
 
-  const syllabus = [
-    {
-      title: 'GST Basics & Registration',
-      points: [
-        'Introduction to GST',
-        'Types of GST (CGST, SGST, IGST)',
-        'GST Registration process',
-        'Composition scheme',
-      ],
-    },
-    {
-      title: 'GST Returns & Filing',
-      points: [
-        'GSTR-1, GSTR-3B',
-        'GSTR-2A & 2B reconciliation',
-        'Annual return GSTR-9',
-        'Late fees & penalties',
-      ],
-    },
-    {
-      title: 'Practical GST Compliance',
-      points: [
-        'Live return filing demo',
-        'Input Tax Credit (ITC)',
-        'E-way bill & E-invoicing',
-        'Notice handling',
-      ],
-    },
-    {
-      title: 'Career & Freelancing',
-      points: [
-        'GST job roles',
-        'Client onboarding',
-        'Pricing GST services',
-        'Freelancing roadmap',
-      ],
-    },
-  ];
+ 
 
 
   const featureIcons: Record<string, JSX.Element> = {
@@ -530,7 +493,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
                     <Users className="w-8 h-8 text-orange-600" />
                     <div>
                       <p className="font-semibold text-gray-900">Expert Teacher Team</p>
-                      <p className="text-sm text-gray-600">CA & tax professionals</p>
+                      <p className="text-sm text-gray-600">CA & Tax professionals</p>
                     </div>
                   </div>
                 </div>
@@ -681,37 +644,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
         </section>
 
       </motion.div>
-      {/* COURSE SYLLABUS ACCORDION */}
-      {/* <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            🎓 Course <span className="text-blue-600">Syllabus</span>
-          </h2>
-
-          <div className="space-y-4">
-            {syllabus.map((item, index) => (
-              <details
-                key={index}
-                className="group bg-gray-50 border border-gray-200 rounded-xl p-5 cursor-pointer"
-              >
-                <summary className="flex justify-between items-center font-semibold text-lg text-gray-900">
-                  {item.title}
-                  <span className="transition group-open:rotate-180">⌄</span>
-                </summary>
-
-                <ul className="mt-4 space-y-2 text-gray-600">
-                  {item.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section> */}
+    
 
       <Testimonials />
       <section className="py-16 bg-gray-50">

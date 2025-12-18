@@ -9,11 +9,11 @@ import { Pricing } from "./pages/Pricing";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { CourseHome } from "./pages/CourseHome";
-import CourseEnquiry from "./pages/CourseEnquiry";
+import  CourseEnquiry  from "./pages/CourseEnquiry";
 
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminLogin } from "./pages/AdminLogin";
-import { AdminSignup } from "./pages/AdminSignup";
+// import { AdminSignup } from "./pages/AdminSignup";
 
 
 function AppWrapper() {

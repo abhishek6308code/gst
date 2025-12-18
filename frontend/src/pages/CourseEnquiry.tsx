@@ -11,7 +11,7 @@ interface EnrollData {
   currentProfession?: string;
 }
 
-export default function EnrollForm() {
+export default function CourseEnquiry() {
   const [form, setForm] = useState<EnrollData>({ name: '', email: '', phone: '', highestQualification: '', currentProfession: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
