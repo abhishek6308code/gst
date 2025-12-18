@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.svg';
 // import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
@@ -13,13 +14,13 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   // const { user, profile, signOut, isAdmin } = useAuth();
 
   const navItems = [
-     { label: 'Home', value: 'courseHome' },
+    { label: 'Home', value: 'courseHome' },
     // { label: 'Home', value: 'home' },
     { label: 'Services', value: 'services' },
     { label: 'ServicePricing', value: 'pricing' },
     { label: 'About', value: 'about' },
     { label: 'Contact', value: 'contact' },
-   
+
     { label: 'Course Enquiry', value: 'courseEnquiry' },
   ];
 
@@ -27,10 +28,10 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   //   onNavigate(value);
   //   setIsMenuOpen(false); // close mobile menu after navigation
   // };
-const handleNavigate = (value: string) => {
-  onNavigate(value);
-  setIsMenuOpen(false);
-};
+  const handleNavigate = (value: string) => {
+    onNavigate(value);
+    setIsMenuOpen(false);
+  };
 
   const openWhatsApp = () => {
     const phone = "919721682580"; // your WhatsApp number (no +)
@@ -43,17 +44,30 @@ const handleNavigate = (value: string) => {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18 md:h-20">
           {/* Brand */}
+
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNavigate('home')}
           >
-            <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-blue-600">TheFinanceShowBy</span>
-              <span className="text-2xl font-bold text-gray-700">AK</span>
+
+            <img
+              src={logo}
+              alt="The Finance Show By AK"
+              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain"
+            />
+
+
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg sm:text-2xl font-bold text-blue-600">
+                TheFinanceShowBy
+                <span className="text-gray-700"> AK</span>
+              </span>
             </div>
           </div>
+
+
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-8">
@@ -61,7 +75,7 @@ const handleNavigate = (value: string) => {
               <button
                 key={item.value}
                 onClick={() => handleNavigate(item.value)}
-                className={`text-sm font-medium transition-colors ${currentPage === item.value
+                className={`text-1xl font-medium transition-colors ${currentPage === item.value
                   ? 'text-blue-600'
                   : 'text-gray-600 hover:text-blue-600'
                   }`}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import  PaymentQR from '../assets/paymentQR.png';
 import { motion } from 'framer-motion';
+import {SEO} from '../components/SEO';  
 interface EnrollData {
   name: string;
   email: string;
@@ -79,6 +80,12 @@ export default function EnrollForm() {
 
   return (
     <>
+      <SEO
+            title="Course Enquiry"
+            description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9721682580 or fill out our contact form"
+            keywords="contact The finance Show By AK, Course Enquiry, tax consultant contact, GST services inquiry, financial services India"
+             ogImage="https://thefinanceshowbyak.com/og-image.png"
+          />
 {/* <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-200">
   <h2 className="text-2xl font-bold text-gray-900 mb-6">
     Course Enquiry Form
@@ -114,7 +121,7 @@ export default function EnrollForm() {
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone No.</label>
           <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange}
-            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="9876543210" />
+            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="9721682580" />
           {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
         </div>
 

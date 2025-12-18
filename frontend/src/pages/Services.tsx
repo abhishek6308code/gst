@@ -149,6 +149,7 @@ export function Services({ onNavigate }: ServicesProps) {
         title="Services"
         description="Professional GST Filing, Bookkeeping, Tax Advisory & Financial Services for Small Businesses and Freelancers in India"
         keywords="GST filing, bookkeeping, tax advisory, payroll management, financial planning, small business accounting, India"
+         ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
 
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-gray-50 pt-8 pb-10 md:pt-10 md:pb-1">

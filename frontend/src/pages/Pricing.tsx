@@ -90,6 +90,7 @@ export function Pricing({ onNavigate }: PricingProps) {
         title="Pricing Plans"
         description="Transparent and affordable pricing for GST filing, bookkeeping, and financial services. Plans starting from ₹999/month for freelancers and small businesses"
         keywords="GST filing cost, bookkeeping charges, tax consultant fees, accounting services pricing India"
+         ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
 
       <section className="bg-gradient-to-br from-gray-50 to-white py-8 md:py-10">

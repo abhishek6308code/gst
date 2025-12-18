@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 // import { image } from 'framer-motion/client';
 import Testimonials from './Testimonials';
 import CourseHighlights from './CourseHighlight';
+import logo from '../assets/logo.svg';
 
 
 interface EnrollData {
@@ -258,6 +259,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
         title="Best GST Course in India | Practical GST Filing & Compliance Training"
         description="Learn GST from basics to advanced with our practical GST course in India. Ideal for beginners, freelancers, job seekers & business owners. Hands-on GST return filing with certification."
         keywords="best GST course in India, GST filing course, GST practical training, GST course for job, GST course for business owners, GST learning India"
+        ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
 
       {/* FIRST SECTION – HERO + FORM */}
@@ -299,7 +301,9 @@ export function CourseHome({ onNavigate }: CourseProps) {
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Practical GST course from basics to advanced return filing.
                 Designed for beginners, freelancers, job seekers & business owners.
+            
               </p>
+           
 
               {/* TRUST BADGES */}
               <div className="flex flex-wrap gap-3 mb-6">

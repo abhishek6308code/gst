@@ -92,8 +92,9 @@ export function Contact({ onNavigate }: ContactProps) {
     <>
       <SEO
         title="Contact Us"
-        description="Get in touch with GSTPro for professional GST filing, bookkeeping, and financial services. Call +91 98765 43210 or fill out our contact form"
-        keywords="contact GSTPro, tax consultant contact, GST services inquiry, financial services India"
+        description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9721682580 or fill out our contact form"
+        keywords="contact The finance Show By AK, tax consultant contact, GST services inquiry, financial services India"
+         ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
 
       <section className="bg-gradient-to-br from-gray-50 to-white py-16 md:py-20">

@@ -6,6 +6,8 @@ import testimonials3 from '../assets/testimonial3.jpg';
 import testimonials4 from '../assets/testimonial4.jpg';
 import testimonials5 from '../assets/testimonial5.jpg';
 import testimonials6 from '../assets/testimonial6.jpg';
+import testimonials8 from '../assets/testimonial8.jpg';
+import testimonials9 from '../assets/testimonial9.jpg';
 
 const testimonials = [
   {
@@ -16,8 +18,15 @@ const testimonials = [
     rating: 5,
   },
   {
+    name: 'Anil Singh',
+    role: 'Freelance Consultant',
+    image: testimonials9,
+    content: 'Highly recommended for professionals.',
+    rating: 5,
+  },
+  {
     name: 'Rajesh Kumar',
-    role: 'Chartered Accountant',
+    role: 'Freelance Consultant',
     image: testimonials2,
     content: 'Excellent course structure with in-depth coverage of GST returns and compliance. The instructors are knowledgeable and always ready to help.',
     rating: 5,
@@ -44,9 +53,25 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Sunita Rao',
+    name: 'Ankit Rao',
     role: 'Finance Professional',
     image: testimonials6,
+    content: 'Highly recommended for professionals.',
+    rating: 5,
+  },
+  ,
+  {
+    name: 'Sunita Rao',
+    role: 'Finance Professional',
+    image: testimonials7,
+    content: 'Highly recommended for professionals.',
+    rating: 5,
+  },
+  ,
+  {
+    name: 'Anil Singh',
+    role: 'Freelance Consultant',
+    image: testimonials8,
     content: 'Highly recommended for professionals.',
     rating: 5,
   },
@@ -70,7 +95,7 @@ export default function Testimonials() {
       ) {
         slider.scrollTo({ left: 0, behavior: 'smooth' });
       }
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
