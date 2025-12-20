@@ -1,5 +1,7 @@
 import { Target, Eye, Award, Users, TrendingUp, Shield } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import React from 'react';
+import image from '../assets/owner.jpeg';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
@@ -35,25 +37,9 @@ export function About({ onNavigate }: AboutProps) {
       role: 'Founder & Managing Director',
       experience: '3+ years in taxation and compliance',
       specialization: 'GST & Tax Advisory',
+      image: image,
     },
-    // {
-    //   name: 'Sachin Singh',
-    //   role: 'Senior Partner',
-    //   experience: '2+ years in financial planning',
-    //   specialization: 'Financial Planning & Audit',
-    // },
-    // {
-    //   name: 'Indar mani',
-    //   role: 'Operations Head',
-    //   experience: '2+ years in bookkeeping',
-    //   specialization: 'Bookkeeping & Compliance',
-    // },
-    // {
-    //   name: 'Pratik',
-    //   role: 'Client Relations Manager',
-    //   experience: '1+ years in client management',
-    //   specialization: 'Client Support & Relations',
-    // },
+  
   ];
 
   const stats = [
@@ -178,14 +164,14 @@ export function About({ onNavigate }: AboutProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1   gap-8">
             {team.map((member, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                  <Users className="w-24 h-24 text-white opacity-50" />
+                <div className="h-48  flex items-center justify-center">
+                  <img src={member.image} alt={member.name} className="w-44 h-44 text-white" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">
@@ -263,7 +249,7 @@ export function About({ onNavigate }: AboutProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => onNavigate('signup')}
+              onClick={() => onNavigate('contact')}
               className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Get Started Today

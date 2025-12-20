@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import axios from 'axios';
 
 
 interface ContactProps {
@@ -35,51 +36,62 @@ export function Contact({ onNavigate }: ContactProps) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    setSuccess(false);
+  e.preventDefault();
+  setError(null);
+  setSuccess(false);
 
-    const clientErrors = validateClient();
-    if (clientErrors.length) {
-      setError(clientErrors.join(' '));
-      return;
-    }
+  const clientErrors = validateClient();
+  if (clientErrors.length) {
+    setError(clientErrors.join(' '));
+    return;
+  }
 
-    setLoading(true);
-    try {
-      const resp = await fetch(`${API}/api/enquiries`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const json = await resp.json();
-      if (resp.status === 201) {
-        setSuccess(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          business_name: '',
-          service_type: 'bookkeeping',
-          message: '',
-        });
-      } else if (resp.status === 409) {
-        setError(json.error || 'Duplicate phone number.');
-      } else if (resp.status === 400 && json.errors) {
-        setError(Array.isArray(json.errors) ? json.errors.join(' ') : json.errors);
-      } else {
-        setError(json.error || 'Failed to submit enquiry. Please try again.');
+  setLoading(true);
+  try {
+    const resp = await axios.post(
+      `${API}/api/enquiries`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    } catch (err) {
-      console.error(err);
-      setError('Failed to submit enquiry. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
 
-  const handleChange = (
+    // Axios automatically parses JSON
+    if (resp.status === 201) {
+      setSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        business_name: '',
+        service_type: 'bookkeeping',
+        message: '',
+      });
+    }
+  } catch (err: any) {
+    console.error(err);
+
+    // Axios error handling
+    if (err.response) {
+      const { status, data } = err.response;
+
+      if (status === 409) {
+        setError(data?.error || 'Duplicate phone number.');
+      } else if (status === 400 && data?.errors) {
+        setError(Array.isArray(data.errors) ? data.errors.join(' ') : data.errors);
+      } else {
+        setError(data?.error || 'Failed to submit enquiry. Please try again.');
+      }
+    } else {
+      setError('Failed to submit enquiry. Please try again.');
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
@@ -92,7 +104,7 @@ export function Contact({ onNavigate }: ContactProps) {
     <>
       <SEO
         title="Contact Us"
-        description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9721682580 or fill out our contact form"
+        description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9286977418 or fill out our contact form"
         keywords="contact The finance Show By AK, tax consultant contact, GST services inquiry, financial services India"
          ogImage="https://thefinanceshowbyak.com/og-image.png"
       />
@@ -115,8 +127,8 @@ export function Contact({ onNavigate }: ContactProps) {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Phone</h3>
               <p className="text-gray-600 mb-2">Call us anytime</p>
-              <a href="tel:+919721682580" className="text-blue-600 font-semibold hover:text-blue-700">
-                +91 9721682580
+              <a href="tel:+919286977418" className="text-blue-600 font-semibold hover:text-blue-700">
+                +91 9286977418
               </a>
             </div>
 
@@ -367,21 +379,7 @@ export function Contact({ onNavigate }: ContactProps) {
                   </li>
                 </ul>
               </div>
-              {/* later Implementation Second Phase */}
-              {/* <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Already a Client?
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Access your dashboard to view documents, track filings, and manage your account.
-                </p>
-                <button
-                  onClick={() => onNavigate('login')}
-                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Client Login
-                </button>
-              </div> */}
+             
             </div>
           </div>
         </div>

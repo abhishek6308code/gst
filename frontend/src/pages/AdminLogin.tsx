@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import axios from 'axios';
 export function AdminLogin({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const API = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
   const [email, setEmail] = useState('');
@@ -14,20 +14,19 @@ export function AdminLogin({ onNavigate }: { onNavigate?: (page: string) => void
     setLoading(true);
 
     try {
-      const resp = await fetch(`${API}/api/admin/login`, {
-        method: 'POST',
+      const resp = await axios.post(`${API}/api/admin/login`, { email, password }, {
+
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+
       });
 
-      let json: any = null;
-      try { json = await resp.json(); } catch (err) { /* ignore */ }
+      const json = resp.data;
 
-      if (resp.ok && json && json.token) {
+
+      if (resp.status === 200 || resp.status === 201) {
         localStorage.setItem('admin_token', json.token);
 
-        // prefer onNavigate if provided (keeps SPA navigation consistent with App.tsx),
-        // otherwise fall back to full page navigation.
+       
         if (typeof onNavigate === 'function') {
           onNavigate('admindashboard');
         } else {
@@ -36,21 +35,34 @@ export function AdminLogin({ onNavigate }: { onNavigate?: (page: string) => void
         }
         return;
       }
-
-      if (resp.status === 401 || resp.status === 403) {
-        setError((json && json.error) || 'Invalid credentials');
-      } else if (!resp.ok) {
-        setError((json && (json.error || (json.errors && json.errors.join(', ')))) || `Login failed (status ${resp.status})`);
-      } else {
-        setError('Login failed: unexpected response');
+      setError('Login failed: unexpected response');
+    }
+    catch (err: any) {
+      console.error(`Login Failed`, err);
+      if (err.response) {
+        const { status, data } = err.response;
+        if (status === 401 || status === 403) {
+          setError(data?.error || 'Invalid credentials');
+        } else {
+          setError(
+            data?.error ||
+             (Array.isArray(data?.error) ? data.error.join(', ') : null) ||
+              `Login failed (status ${status})`
+          );
+          }
+        }
+           else {
+        setError('Login failed');
       }
-    } catch (err) {
-      console.error('Login network error', err);
-      setError('Network error. Please try again.');
-    } finally {
-      setLoading(false);
+    }
+    finally {
+      setLoading(false)
     }
   };
+
+
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">

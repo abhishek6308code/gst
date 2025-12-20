@@ -5,10 +5,10 @@ import { SEO } from '../components/SEO';
 // import CourseEnquiry from './CourseEnquiry';
 import { ArrowRight, } from 'lucide-react';
 import PaymentQR from '../assets/paymentQR.png';
-import HeroImage from '../assets/hero.png';
+import HeroImage from '../assets/hero.jpg';
 // import HeroImage2 from '../assets/hero2.jpeg';
-import images1 from '../assets/images1.jpeg'
-import images2 from '../assets/images2.jpeg'
+import images1 from '../assets/images1.jpg'
+import images2 from '../assets/images2.jpg'
 import images3 from '../assets/images3.jpeg'
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 // import { image } from 'framer-motion/client';
 import Testimonials from './Testimonials';
 import CourseHighlights from './CourseHighlight';
+import axios from 'axios';
 import logo from '../assets/logo.svg';
 
 
@@ -98,26 +99,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
     },
    
   ];
-  // const testimonials = [
-  //   {
-  //     name: 'Rohit Sharma',
-  //     role: 'Commerce Student',
-  //     feedback:
-  //       'This GST course is very practical. I filed real returns and gained confidence.',
-  //   },
-  //   {
-  //     name: 'Pooja Verma',
-  //     role: 'Freelancer',
-  //     feedback:
-  //       'After this course, I started my own GST filing service. Highly recommended!',
-  //   },
-  //   {
-  //     name: 'Amit Jain',
-  //     role: 'Business Owner',
-  //     feedback:
-  //       'Simple explanations and real examples helped me manage my GST myself.',
-  //   },
-  // ];
+
 
  
 
@@ -182,36 +164,62 @@ export function CourseHome({ onNavigate }: CourseProps) {
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccess(null);
+
     const v = validate(form);
     setErrors(v);
     if (Object.keys(v).length) return;
 
     try {
       setSubmitting(true);
-      const resp = await fetch(`${API}/api/enrollments`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const json = await resp.json();
+
+      const resp = await axios.post(
+        `${API}/api/enrollments`,
+        form,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      // axios automatically parses JSON
       if (resp.status === 201) {
         setSuccess('Enrolled successfully! We will contact you soon.');
-        setForm({ name: '', email: '', phone: '', highestQualification: '', currentProfession: '' });
-      } else if (resp.status === 409) {
-        setErrors({ phone: json.error || 'Phone already used' });
-      } else if (resp.status === 400 && json.errors) {
-        // show server validation errors
-        const joined = Array.isArray(json.errors) ? json.errors.join(' ') : String(json.errors);
-        setSuccess(joined);
-      } else {
-        setSuccess(json.error || 'Something went wrong');
+        localStorage.setItem('enquirySubmitted', 'true');
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          highestQualification: '',
+          currentProfession: '',
+        });
       }
-    } catch (err) {
+
+    } catch (err: any) {
+      // axios error handling
+      if (axios.isAxiosError(err)) {
+        const status = err.response?.status;
+        const data = err.response?.data;
+
+        if (status === 409) {
+          setErrors({ phone: data?.error || 'Phone already used' });
+        } else if (status === 400 && data?.errors) {
+          const joined = Array.isArray(data.errors)
+            ? data.errors.join(' ')
+            : String(data.errors);
+          setSuccess(joined);
+        } else {
+          setSuccess(data?.error || 'Something went wrong');
+        }
+      } else {
+        setSuccess('Something went wrong. Please try again later.');
+      }
+
       console.error(err);
-      setSuccess('Something went wrong. Please try again later.');
     } finally {
       setSubmitting(false);
     }
@@ -230,26 +238,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* LEFT: HERO CONTENT + IMAGE */}
-            {/* <div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-          Your Trusted Platform for
-          <span className="text-blue-600"> GST </span>
-          Learning
-        </h1>
-
-        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Practical GST course from basics to advanced return filing.
-          Designed for beginners, freelancers, job seekers & business owners.
-        </p>
-
-       
-        <img
-          src={HeroImage}
-          alt="GST Course Hero"
-          className="w-full max-w-md rounded-2xl shadow-xl"
-        />
-      </div> */}
+          
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -465,7 +454,7 @@ export function CourseHome({ onNavigate }: CourseProps) {
                   //   onClick={() => setShowEnquiryModal(true)}
                   className=" px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all"
                 >
-                  <a href="tel:+919721682580" className="text-blue-600 font-semibold hover:text-blue-700">
+                  <a href="tel:+919286977418" className="text-blue-600 font-semibold hover:text-blue-700">
                     Talk to Mentor
                   </a>
                 </button>

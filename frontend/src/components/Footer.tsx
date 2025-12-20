@@ -113,7 +113,7 @@ export function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span className="text-sm tel:+919721682580" >+91 9721682580</span>
+                <span className="text-sm tel:+919286977418" >+91 9286977418</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />

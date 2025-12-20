@@ -34,7 +34,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   };
 
   const openWhatsApp = () => {
-    const phone = "919721682580"; // your WhatsApp number (no +)
+    const phone = "919286977418"; // your WhatsApp number (no +)
     const message = "Hello! I want to know more about your services.";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");

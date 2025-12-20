@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import  PaymentQR from '../assets/paymentQR.png';
 import { motion } from 'framer-motion';
-import {SEO} from '../components/SEO';  
+import {SEO} from '../components/SEO'; 
+import axios from 'axios'; 
 interface EnrollData {
   name: string;
   email: string;
@@ -43,36 +44,61 @@ export default function CourseEnquiry() {
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccess(null);
+
     const v = validate(form);
     setErrors(v);
     if (Object.keys(v).length) return;
 
     try {
       setSubmitting(true);
-      const resp = await fetch(`${API}/api/enrollments`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const json = await resp.json();
+
+      const resp = await axios.post(
+        `${API}/api/enrollments`,
+        form,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      // axios automatically parses JSON
       if (resp.status === 201) {
         setSuccess('Enrolled successfully! We will contact you soon.');
-        setForm({ name: '', email: '', phone: '', highestQualification: '', currentProfession: ''  });
-      } else if (resp.status === 409) {
-        setErrors({ phone: json.error || 'Phone already used' });
-      } else if (resp.status === 400 && json.errors) {
-        // show server validation errors
-        const joined = Array.isArray(json.errors) ? json.errors.join(' ') : String(json.errors);
-        setSuccess(joined);
-      } else {
-        setSuccess(json.error || 'Something went wrong');
+        localStorage.setItem('enquirySubmitted', 'true');
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          highestQualification: '',
+          currentProfession: '',
+        });
       }
-    } catch (err) {
+
+    } catch (err: any) {
+      // axios error handling
+      if (axios.isAxiosError(err)) {
+        const status = err.response?.status;
+        const data = err.response?.data;
+
+        if (status === 409) {
+          setErrors({ phone: data?.error || 'Phone already used' });
+        } else if (status === 400 && data?.errors) {
+          const joined = Array.isArray(data.errors)
+            ? data.errors.join(' ')
+            : String(data.errors);
+          setSuccess(joined);
+        } else {
+          setSuccess(data?.error || 'Something went wrong');
+        }
+      } else {
+        setSuccess('Something went wrong. Please try again later.');
+      }
+
       console.error(err);
-      setSuccess('Something went wrong. Please try again later.');
     } finally {
       setSubmitting(false);
     }
@@ -82,7 +108,7 @@ export default function CourseEnquiry() {
     <>
       <SEO
             title="Course Enquiry"
-            description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9721682580 or fill out our contact form"
+            description="Get in touch with The finance Show By AK for professional GST filing, bookkeeping, and financial services. Call +91 9286977418 or fill out our contact form"
             keywords="contact The finance Show By AK, Course Enquiry, tax consultant contact, GST services inquiry, financial services India"
              ogImage="https://thefinanceshowbyak.com/og-image.png"
           />
@@ -121,7 +147,7 @@ export default function CourseEnquiry() {
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone No.</label>
           <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange}
-            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="9721682580" />
+            className="mt-1 block w-full rounded-lg border px-3 py-2" placeholder="9286977418" />
           {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
         </div>
 
